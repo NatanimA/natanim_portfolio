@@ -3,6 +3,10 @@
     font-family: var(--font-base);
 }
 
+a {
+    text-decoration: none;
+}
+
 .app__whitebg {
     background-color: var(--white-color);
 }

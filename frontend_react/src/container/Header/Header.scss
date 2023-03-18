@@ -77,6 +77,19 @@
         }
     }
 
+    .resume-cmp {
+        background-color: var(--secondary-color);
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+            color: var(--white-color);
+        }
+    }
+
     span {
         font-size: 2.5rem;
 
