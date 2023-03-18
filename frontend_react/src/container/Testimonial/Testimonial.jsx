@@ -16,7 +16,6 @@ const Testimonial = () => {
     const queryBrands ='*[_type == "brands"]';
 
     client.fetch(queryTestimonials).then(data => {
-      console.log("Testimonial: ",data)
       setTestimonials(data)
     }).catch(err => err)
 
@@ -33,12 +32,16 @@ const Testimonial = () => {
 
   return (
     <>
+      <div style={{marginBottom:20}}>
+        <h2 className='head-text'><span>Testimonials</span></h2>
+        <p className='p-text'>WHAT MY PREVIOUS CLIENTS SAY ABOUT MY WORK</p>
+      </div>
       {testimonials.length && (
         <>
           <div className='app__testimonial-item app__flex' key={testimonials[currentIndex]._id}>
               <img src={urlForm(test.imageurl).url()} alt="testimonials" />
               <div className="app__testimonial-content">
-                <p className="p-text">{test.feedback}</p>
+                <p className="p-text" style={{fontSize:18}}>{test.feedback}</p>
                 <div>
                   <h4 className="bold-text">{test.name}</h4>
                   <h5 className="p-text">{test.company}</h5>

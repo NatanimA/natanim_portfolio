@@ -30,13 +30,22 @@ const Header = () => {
                     <div style={{marginLeft:20}}>
                         <p className='p-text'>Hello, I am</p>
                         <h1 className='head-text'>Natanim</h1>
+                        <p className='p-text'>Full-stack Developer</p>
+                        <p className='p-text'>Freelancer</p>
                     </div>
                 </div>
-
-                <div className='tag-cmp app__flex'>
-                    <p className='p-text'>Full-stack Developer</p>
-                    <p className='p-text'>Freelancer</p>
-                </div>
+                <a href='https://drive.google.com/file/d/1lfGurtzl-vEsxNsA6fZtmaSJlNrhWv7d/view?usp=sharing' target='_blank' rel='noreferrer'>
+                    <motion.div
+                      whileInView={{opacity:1}}
+                      whileHover={{scale:1.1}}
+                      transition={{duration:0.5,type:'tween'}}
+                      className="app__profile-item"
+                    >
+                    <div className='tag-cmp app__flex resume-cmp'>
+                      <h4 className='head-text'>RESUME</h4>
+                    </div>
+                </motion.div>
+                </a>
             </div>
 
         </motion.div>

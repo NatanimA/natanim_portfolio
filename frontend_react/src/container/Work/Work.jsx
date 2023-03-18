@@ -11,6 +11,7 @@ const Work = () => {
 
   const [activeFilter, setActiveFilter] = useState('All')
   const [animateCard, setAnimateCard] = useState({y:0,opacity:1})
+  const [tags, setTags] = useState([])
   const [works, setWorks] = useState([])
   const [filterWorks, setFilterWorks] = useState([])
 
@@ -20,6 +21,18 @@ const Work = () => {
 
     client.fetch(query).then( data => {
       setWorks(data);
+      let tag = []
+      data.forEach( item => {
+        let prevTag = tag
+        tag = [...prevTag,...item.tags]
+      });
+
+      function removeDuplicates(arr) {
+        return arr.filter((item,
+            index) => arr.indexOf(item) === index);
+      }
+      tag = removeDuplicates(tag)
+      setTags(tag)
       setFilterWorks(data);
     })
   }, [])
@@ -43,7 +56,7 @@ const Work = () => {
     <>
       <h2 className='head-text'>My Creative <span>Portfolio</span><br/><span>Section</span></h2>
       <div className='app__work-filter'>
-        {['Web App','React JS','Angular JS','Mobile App','All'].map((item,index) => (
+        {[...tags,'All'].map((item,index) => (
           <div
           key={index}
           onClick={() => handleWorkFilter(item)}
