@@ -18,7 +18,20 @@ const About = () => {
 
   return (
     <>
-      <h2 className='head-text'>I Know that <span>Good Dev</span><br/>means <span>Good Business</span></h2>
+      <h4 class="head-text">Bringing <span>innovation</span><br></br> to the forefront of <span>development</span></h4>
+      <p class="p-text" style={{fontSize:18,marginTop:25}}>
+          As a highly skilled <strong><span>Software engineer</span></strong> and <strong><span>Full-stack developer</span></strong> with over 2 years of experience in the field,
+          I have dedicated myself to developing scalable applications for clients around the world.
+          I enjoy collaborating with clients and team members to deliver innovative solutions that exceed expectations.
+          With expertise in a range of programming languages including <strong><span>Java, Python, and JavaScript,</span></strong>
+          <br></br>I have worked on projects spanning various industries from e-commerce to enterprise applications.
+          <br></br>
+          I am a strong believer in agile methodologies and the power of teamwork.
+          My passion for coding and my commitment to delivering exceptional results have earned me an excellent reputation among clients and colleagues alike.
+          If you're looking for a driven individual who can work collaboratively
+          while delivering results at a high level, look no further than me as your <strong><span>Software engineer</span></strong> and <strong><span>Full-stack developer.</span></strong>
+      </p>
+      <h4 className='head-text' style={{marginTop:20}}><span>Services</span></h4>
       <div id='about' className='app__profiles'>
           {abouts.map((about) => (
             <motion.div
