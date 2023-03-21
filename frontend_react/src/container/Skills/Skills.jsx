@@ -64,7 +64,7 @@ const Skills = () => {
 
                               >
                                 <h4 className='bold-text'>{work.name}</h4>
-                                <p className='p-text'>{work.company}</p>
+                                <p className='p-text'><span>{work.company}</span></p>
                                 <ul>
                                     {work?.desc.length > 0 && work.desc.map( wd => (
                                       <li key={wd._key} className='p-text'>{wd.children[0].text}</li>
