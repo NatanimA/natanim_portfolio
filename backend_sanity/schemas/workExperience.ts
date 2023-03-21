@@ -15,7 +15,12 @@ export default {
             {
                 name:'desc',
                 title:'Desc',
-                type:'text'
+                type:'array',
+                of:[
+                    {
+                        type:'block'
+                    }
+                ]
             }
     ]
 }
