@@ -11,6 +11,8 @@ const Footer = () => {
     email:'',
     message:''
   })
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regular expression for email validation
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
 
@@ -24,7 +26,13 @@ const Footer = () => {
       })
   }
 
+  const isEmail  = (str) => {
+    return emailRegex.test(str); // Use the "test" method to check if the string matches the email regex
+  }
   const handleSubmit = () => {
+    const {name,message,email} =formData
+    if(name.length < 1 || message.length < 1) return
+    if(!isEmail(email)) return
     setLoading(true)
 
     const contact = {
@@ -56,12 +64,12 @@ const Footer = () => {
           </div>
       </div>
       {!isFormSubmitted ?
-      <div className='app__footer-form app__flex'>
+      <form className='app__footer-form app__flex'>
           <div className='app__flex'>
-              <input className='p-text' type='text' name='name' placeholder='Your Name' value={name} onChange={handleChangeInput} />
+              <input className='p-text' type='text' name='name' placeholder='Your Name' value={name} onChange={handleChangeInput} required/>
           </div>
           <div className='app__flex'>
-              <input className='p-text' type='email' name="email" placeholder='Your Email' value={email} onChange={handleChangeInput} />
+              <input className='p-text' type='email' name="email" placeholder='Your Email' value={email} onChange={handleChangeInput} required/>
           </div>
           <div>
             <textarea
@@ -70,10 +78,11 @@ const Footer = () => {
               value={message}
               name="message"
               onChange={handleChangeInput}
+              required
              />
           </div>
-          <button type='button' className='p-text' onClick={handleSubmit}>{loading ? "Sending Message" : "Send Message"}</button>
-      </div>:
+          <button type='submit' className='p-text' onClick={handleSubmit}>{loading ? "Sending Message" : "Send Message"}</button>
+      </form>:
       <div>
         <h3 className='head-text'>Thank you for <span>getting in touch.</span></h3><br></br>
         <h4 className='head-text'>I will get back to you <span>SOON.</span></h4>
