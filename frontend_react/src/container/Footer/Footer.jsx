@@ -29,7 +29,8 @@ const Footer = () => {
   const isEmail  = (str) => {
     return emailRegex.test(str); // Use the "test" method to check if the string matches the email regex
   }
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault()
     const {name,message,email} =formData
     if(name.length < 1 || message.length < 1) return
     if(!isEmail(email)) return
