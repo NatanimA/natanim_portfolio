@@ -34,7 +34,7 @@ const Header = () => {
                         <p className='p-text'>Freelancer</p>
                     </div>
                 </div>
-                <a href='https://drive.google.com/file/d/1lfGurtzl-vEsxNsA6fZtmaSJlNrhWv7d/view?usp=sharing' target='_blank' rel='noreferrer'>
+                <a href='https://drive.google.com/file/d/1_7BNW16X4IISWWrPRglzuxhVBSsIP03J/view?usp=sharing' target='_blank' rel='noreferrer'>
                     <motion.div
                       whileInView={{opacity:1}}
                       whileHover={{scale:1.1}}
