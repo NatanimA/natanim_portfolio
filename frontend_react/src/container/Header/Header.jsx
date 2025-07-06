@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { images } from '../../constants'
 import { AppWrap } from '../../wrapper';
+import { client } from '../../client';
 
 import './Header.scss'
 
@@ -17,6 +18,15 @@ const scaleVariants = {
 }
 
 const Header = () => {
+  const [resumeData, setResumeData] = useState(null);
+
+  useEffect(() => {
+    const query = '*[_type == "resume" && isActive == true][0]';
+    client.fetch(query).then(data => {
+      setResumeData(data);
+    }).catch(err => console.error('Error fetching resume:', err));
+  }, []);
+
   return (
     <div className='app__header app__flex'>
         <motion.div
@@ -34,18 +44,21 @@ const Header = () => {
                         <p className='p-text'>Freelancer</p>
                     </div>
                 </div>
-                <a href='https://drive.google.com/file/d/1_7BNW16X4IISWWrPRglzuxhVBSsIP03J/view?usp=sharing' target='_blank' rel='noreferrer'>
-                    <motion.div
-                      whileInView={{opacity:1}}
-                      whileHover={{scale:1.1}}
-                      transition={{duration:0.5,type:'tween'}}
-                      className="app__profile-item"
-                    >
-                    <div className='tag-cmp app__flex resume-cmp'>
-                      <h4 className='head-text'>RESUME</h4>
-                    </div>
-                </motion.div>
-                </a>
+                
+                {resumeData && (
+                  <motion.a 
+                    href={resumeData.resumeLink} 
+                    target='_blank' 
+                    rel='noreferrer'
+                    className='app__resume-btn'
+                    whileInView={{opacity:1}}
+                    whileHover={{scale:1.1}}
+                    transition={{duration:0.5,type:'tween'}}
+                    title={resumeData.downloadText}
+                  >
+                    <h4 className='head-text'>{resumeData.title}</h4>
+                  </motion.a>
+                )}
             </div>
 
         </motion.div>
