@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { AiOutlineCalendar, AiOutlineEnvironment, AiOutlineTrophy, AiOutlineRocket } from 'react-icons/ai'
 import { FiMapPin, FiStar, FiTrendingUp } from 'react-icons/fi'
 
